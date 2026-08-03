@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vigilancia Agosto 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{
+  --hdr:#B71C1C;--hdr2:#D32F2F;--hdr3:#E57373;
+  --puerta:#1565C0;--carros:#BF360C;
+  --sab:#6A1B9A;--dom:#E65100;--mar:#0D47A1;
+  --bg:#FBE9E7;--card:#fff;--r:9px;--sh:0 2px 10px rgba(0,0,0,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:'Segoe UI',Arial,sans-serif;color:#2D3748}
+.topbar{background:linear-gradient(135deg,var(--hdr) 0%,var(--hdr2) 60%,var(--hdr3) 100%);
+  color:#fff;padding:12px 18px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 3px 12px rgba(0,0,0,.28);position:sticky;top:0;z-index:50}
+.topbar-icon{font-size:1.8rem}
+.topbar h1{font-size:1.12rem;font-weight:700;line-height:1.2}
+.topbar p{font-size:.72rem;opacity:.85;margin-top:2px}
+.topbar-right{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.notice{background:#FBE9E7;border-left:4px solid #D32F2F;padding:8px 16px;font-size:.78rem;color:#B71C1C}
+.stats-bar{background:var(--hdr);color:#fff;padding:7px 18px;
+  display:flex;gap:18px;flex-wrap:wrap;font-size:.73rem;align-items:center}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:1px}
+.stat-val{font-size:1rem;font-weight:700}
+.stat-lbl{font-size:.6rem;opacity:.75;text-transform:uppercase}
+.ctrl{padding:9px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  background:#fff;border-bottom:2px solid #FFCDD2}
+label{font-size:.78rem;font-weight:600;color:#B71C1C}
+select{border:1.5px solid #EF9A9A;border-radius:6px;padding:4px 8px;
+  font-size:.78rem;background:#fff;cursor:pointer}
+.btn{border:none;border-radius:6px;padding:5px 13px;font-size:.78rem;
+  cursor:pointer;font-weight:600;transition:all .15s}
+.b-red{background:var(--hdr2);color:#fff}.b-red:hover{background:var(--hdr)}
+.b-jpeg{background:#FB8C00;color:#fff}.b-jpeg:hover{background:#EF6C00}
+.b-jpeg:disabled{background:#FFCC80;cursor:wait}
+.b-gray{background:#FBE9E7;color:#B71C1C;border:1px solid #EF9A9A}
+#captureArea{background:#FFF5F4;padding:14px 16px}
+.capture-title{display:none;text-align:center;font-size:22px;font-weight:800;
+  color:#B71C1C;padding:6px 0 2px}
+.capture-subtitle{display:none;text-align:center;font-size:13px;color:#D32F2F;
+  padding-bottom:10px;border-bottom:2px solid #D32F2F;margin-bottom:10px}
+#captureArea.capturing{background:#fff}
+#captureArea.capturing .capture-title,
+#captureArea.capturing .capture-subtitle{display:block}
+.legend{display:flex;gap:7px;flex-wrap:wrap;align-items:center;
+  padding:7px 16px;background:#FFF3F2;border-bottom:1px solid #FFCDD2;font-size:.72rem}
+.li{display:flex;align-items:center;gap:4px}
+.ld{width:10px;height:10px;border-radius:2px}
+.main{padding:12px 16px}
+.wk-title{font-size:.88rem;font-weight:700;color:var(--hdr);
+  margin:14px 0 6px;display:flex;align-items:center;gap:7px}
+.wk-title::before{content:'';width:3px;height:16px;background:var(--hdr2);border-radius:2px;display:block}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+@media(max-width:900px){.week-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.week-grid{grid-template-columns:repeat(2,1fr)}}
+.dcard{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;
+  transition:transform .15s,box-shadow .15s;border-top:4px solid var(--hdr2)}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,.14)}
+.dcard.sab{border-top-color:var(--sab)}.dcard.dom{border-top-color:var(--dom)}
+.dcard.mar{border-top-color:var(--mar)}
+.dcard.hl{box-shadow:0 0 0 3px gold,0 4px 14px rgba(0,0,0,.18)!important}
+.dcard.dim{opacity:.22;filter:grayscale(.5)}
+.dhdr{padding:6px 8px;display:flex;justify-content:space-between;align-items:center}
+.dcard .dhdr{background:var(--hdr2);color:#fff}
+.dcard.sab .dhdr{background:var(--sab)}.dcard.dom .dhdr{background:var(--dom)}
+.dcard.mar .dhdr{background:var(--mar)}
+.dname{font-weight:700;font-size:.8rem}.ddate{font-size:.7rem;opacity:.85;
+  background:rgba(255,255,255,.2);padding:1px 5px;border-radius:3px}
+.dbody{padding:6px}
+.sec{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  margin:4px 0 2px;padding:1px 5px;border-radius:3px;display:inline-block}
+.sec-p{background:rgba(21,101,192,.12);color:#1565C0}
+.sec-c{background:rgba(191,54,12,.12);color:var(--carros)}
+.trow{display:flex;align-items:center;gap:4px;padding:2px 4px;border-radius:4px;
+  margin-bottom:2px;background:#FFF3F2;font-size:.76rem;flex-wrap:wrap}
+.tb{font-size:.57rem;font-weight:700;padding:1px 4px;border-radius:3px;flex-shrink:0}
+.t1b{background:#DBEAFE;color:#1E40AF}.t2b{background:#FCE7F3;color:#9D174D}
+.chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;
+  border-radius:18px;font-size:.7rem;font-weight:700;margin:1px;cursor:pointer;
+  transition:transform .1s;white-space:nowrap;color:#fff}
+.chip:hover{transform:scale(1.06)}
+.none-s{color:#A0AEC0;font-style:italic;font-size:.7rem}
+.sb-btn{position:fixed;bottom:18px;right:18px;background:var(--hdr);color:#fff;
+  border:none;border-radius:50%;width:46px;height:46px;font-size:1.3rem;
+  cursor:pointer;box-shadow:var(--sh);z-index:90}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:100}
+.overlay.show{display:block}
+.sidebar{position:fixed;top:0;right:0;width:290px;height:100vh;
+  background:#fff;box-shadow:-3px 0 16px rgba(0,0,0,.15);z-index:110;
+  transform:translateX(100%);transition:transform .3s;overflow-y:auto;padding:16px}
+.sidebar.open{transform:translateX(0)}
+.sidebar h2{font-size:.93rem;color:var(--hdr);margin-bottom:10px;
+  padding-bottom:6px;border-bottom:2px solid #FFCDD2;display:flex;
+  justify-content:space-between;align-items:center}
+.sb-close{background:none;border:none;font-size:1.1rem;cursor:pointer;color:#718096}
+.clist{display:flex;flex-direction:column;gap:5px}
+.citem{display:flex;align-items:center;gap:8px;padding:7px 9px;
+  border-radius:8px;cursor:pointer;transition:filter .15s;
+  border:2px solid transparent;font-size:.78rem;font-weight:600;color:#fff}
+.citem:hover{filter:brightness(1.08)}
+.citem.active{border-color:gold;box-shadow:0 0 0 2px gold}
+.citem.no-sab::after{content:'sin sáb';font-size:.6rem;background:rgba(255,255,255,.3);
+  padding:1px 5px;border-radius:3px;margin-left:auto}
+.cstats{font-size:.65rem;opacity:.9;margin-left:auto;text-align:right}
+footer{text-align:center;padding:10px;font-size:.7rem;
+  color:#A0AEC0;border-top:1px solid #FFCDD2;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-icon">🔥</div>
+  <div>
+    <h1>Cronograma de Vigilancia – Agosto 2026</h1>
+    <p>3 Ago → 30 Ago · 4 semanas completas · 14 colaboradores</p>
+  </div>
+  <div class="topbar-right">
+    <button class="btn b-jpeg" onclick="descargarJPEG()">📷 Descargar Imagen</button>
+    <button class="btn b-gray" onclick="toggleSB()">👥 Colaboradores</button>
+  </div>
+</div>
+<div class="notice">📅 Todos los colaboradores disponibles este mes. Sábados rotados (máx. 1 por persona). Sin sábado esta vez: <strong>Miguel A, Justo, Alfonso, Rodolfo</strong>.</div>
+<div class="stats-bar" id="statsBar"></div>
+<div class="ctrl">
+  <label>Semana:</label>
+  <select id="semFilter">
+    <option value="-1">Todas</option>
+    <option value="0">Sem 1 · 3–9 Ago</option>
+    <option value="1">Sem 2 · 10–16 Ago</option>
+    <option value="2">Sem 3 · 17–23 Ago</option>
+    <option value="3">Sem 4 · 24–30 Ago</option>
+  </select>
+  <label>Colaborador:</label>
+  <select id="personFilter">
+    <option value="">Todos</option>
+    <option value="Carlos B">Carlos B</option><option value="Hernan">Hernan</option><option value="Fernando">Fernando</option><option value="David">David</option><option value="Luis C.">Luis C.</option><option value="Ciro">Ciro</option><option value="Carlos T">Carlos T</option><option value="Deivid">Deivid</option><option value="Anderson">Anderson</option><option value="Jeiner">Jeiner</option><option value="Miguel A">Miguel A</option><option value="Justo">Justo</option><option value="Alfonso">Alfonso</option><option value="Rodolfo">Rodolfo</option>
+  </select>
+  <button class="btn b-gray" onclick="resetFiltros()">✕ Limpiar</button>
+</div>
+<div class="legend">
+  <b style="color:#B71C1C">Leyenda:</b>
+  <div class="li"><div class="ld" style="background:#D32F2F"></div>Lun/Mié/Jue/Vie</div>
+  <div class="li"><div class="ld" style="background:#0D47A1"></div>Martes (restr. Sáb)</div>
+  <div class="li"><div class="ld" style="background:#6A1B9A"></div>Sábado (solo Puerta)</div>
+  <div class="li"><div class="ld" style="background:#E65100"></div>Domingo</div>
+  <div class="li"><div class="ld" style="background:#1565C0"></div>Puerta</div>
+  <div class="li"><div class="ld" style="background:#BF360C"></div>Carros</div>
+</div>
+<div id="captureArea">
+  <div class="capture-title">PROGRAMACIÓN VIGILANCIA – AGOSTO 2026</div>
+  <div class="capture-subtitle">3 Ago → 30 Ago · Iglesia · Todos disponibles</div>
+  <div class="main" id="mainContent"></div>
+</div>
+<button class="sb-btn" onclick="toggleSB()">👥</button>
+<div class="overlay" id="ov" onclick="closeSB()"></div>
+<div class="sidebar" id="sb">
+  <h2>Colaboradores <button class="sb-close" onclick="closeSB()">✕</button></h2>
+  <div class="clist" id="clist"></div>
+</div>
+<footer>Iglesia · Vigilancia Agosto 2026 · Rango 7–8 asignaciones · ✓ Todas las restricciones cumplidas</footer>
+<script>
+const DATA=[[{"dia": "Lunes", "fecha": "3 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Hernan", "c1": "David", "c2": "Fernando"}, {"dia": "Martes", "fecha": "4 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Ciro", "p2": "Deivid", "c1": "Jeiner", "c2": "Anderson"}, {"dia": "Miércoles", "fecha": "5 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Carlos T", "c1": "Miguel A", "c2": "Justo"}, {"dia": "Jueves", "fecha": "6 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Carlos B", "c2": "Hernan"}, {"dia": "Viernes", "fecha": "7 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "David", "p2": "Fernando", "c1": "Luis C.", "c2": "Ciro"}, {"dia": "Sábado", "fecha": "8 Ago", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Carlos T", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "9 Ago", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Jeiner", "p2": "Anderson", "c1": "Deivid + Miguel A", "c2": "Justo"}], [{"dia": "Lunes", "fecha": "10 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Carlos T", "c2": "Carlos B"}, {"dia": "Martes", "fecha": "11 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Miguel A", "p2": "Justo", "c1": "Hernan", "c2": "David"}, {"dia": "Miércoles", "fecha": "12 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Ciro", "p2": "Fernando", "c1": "Deivid", "c2": "Anderson"}, {"dia": "Jueves", "fecha": "13 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "David", "c1": "Luis C.", "c2": "Fernando"}, {"dia": "Viernes", "fecha": "14 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Ciro", "c2": "Carlos T"}, {"dia": "Sábado", "fecha": "15 Ago", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Ciro", "p2": "Fernando", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "16 Ago", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Carlos B", "p2": "Hernan", "c1": "Alfonso + Rodolfo", "c2": "Carlos T"}], [{"dia": "Lunes", "fecha": "17 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Deivid", "p2": "Anderson", "c1": "Jeiner", "c2": "Miguel A"}, {"dia": "Martes", "fecha": "18 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Luis C.", "p2": "Alfonso", "c1": "Rodolfo", "c2": "Anderson"}, {"dia": "Miércoles", "fecha": "19 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Carlos B", "c1": "Hernan", "c2": "David"}, {"dia": "Jueves", "fecha": "20 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Deivid", "c1": "Justo", "c2": "Ciro"}, {"dia": "Viernes", "fecha": "21 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Carlos T", "c1": "Alfonso", "c2": "Fernando"}, {"dia": "Sábado", "fecha": "22 Ago", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Deivid", "p2": "Carlos B", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "23 Ago", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "David", "p2": "Anderson", "c1": "Luis C. + Jeiner", "c2": "Fernando"}], [{"dia": "Lunes", "fecha": "24 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Hernan", "p2": "Miguel A", "c1": "Rodolfo", "c2": "Justo"}, {"dia": "Martes", "fecha": "25 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "David", "p2": "Ciro", "c1": "Carlos B", "c2": "Deivid"}, {"dia": "Miércoles", "fecha": "26 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Carlos T", "c1": "Alfonso", "c2": "Anderson"}, {"dia": "Jueves", "fecha": "27 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Hernan", "c1": "Rodolfo", "c2": "Fernando"}, {"dia": "Viernes", "fecha": "28 Ago", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Miguel A", "c1": "Carlos B", "c2": "David"}, {"dia": "Sábado", "fecha": "29 Ago", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Hernan", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "30 Ago", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Ciro", "p2": "Carlos T", "c1": "Deivid + Alfonso", "c2": "Miguel A"}]];
+const PC={"Carlos B": "#E53935", "Hernan": "#D81B60", "Fernando": "#8E24AA", "David": "#5E35B1", "Luis C.": "#3949AB", "Ciro": "#1E88E5", "Carlos T": "#039BE5", "Deivid": "#00ACC1", "Anderson": "#00897B", "Jeiner": "#43A047", "Miguel A": "#7CB342", "Justo": "#F9A825", "Alfonso": "#FB8C00", "Rodolfo": "#6D4C41"};
+const COLS=["Carlos B", "Hernan", "Fernando", "David", "Luis C.", "Ciro", "Carlos T", "Deivid", "Anderson", "Jeiner", "Miguel A", "Justo", "Alfonso", "Rodolfo"];
+const STATS={"Carlos B": {"total": 8, "puerta": 4, "carros": 4, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 2, 2, 2]}, "Hernan": {"total": 8, "puerta": 5, "carros": 3, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 2, 1, 3]}, "Fernando": {"total": 8, "puerta": 3, "carros": 5, "dom": 1, "mar": 0, "sab": 1, "sinSab": false, "semanas": [2, 3, 2, 1]}, "David": {"total": 8, "puerta": 4, "carros": 4, "dom": 1, "mar": 2, "sab": 0, "sinSab": false, "semanas": [2, 2, 2, 2]}, "Luis C.": {"total": 7, "puerta": 4, "carros": 3, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [3, 1, 2, 1]}, "Ciro": {"total": 8, "puerta": 5, "carros": 3, "dom": 1, "mar": 2, "sab": 1, "sinSab": false, "semanas": [2, 3, 1, 2]}, "Carlos T": {"total": 8, "puerta": 5, "carros": 3, "dom": 2, "mar": 0, "sab": 1, "sinSab": false, "semanas": [2, 3, 1, 2]}, "Deivid": {"total": 8, "puerta": 4, "carros": 4, "dom": 2, "mar": 2, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 2]}, "Anderson": {"total": 7, "puerta": 3, "carros": 4, "dom": 2, "mar": 2, "sab": 0, "sinSab": false, "semanas": [2, 1, 3, 1]}, "Jeiner": {"total": 8, "puerta": 5, "carros": 3, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 2]}, "Miguel A": {"total": 8, "puerta": 4, "carros": 4, "dom": 2, "mar": 1, "sab": 0, "sinSab": true, "semanas": [2, 1, 2, 3]}, "Justo": {"total": 7, "puerta": 3, "carros": 4, "dom": 1, "mar": 1, "sab": 0, "sinSab": true, "semanas": [2, 1, 2, 2]}, "Alfonso": {"total": 8, "puerta": 4, "carros": 4, "dom": 2, "mar": 1, "sab": 0, "sinSab": true, "semanas": [1, 3, 2, 2]}, "Rodolfo": {"total": 7, "puerta": 3, "carros": 4, "dom": 1, "mar": 1, "sab": 0, "sinSab": true, "semanas": [1, 3, 1, 2]}};
+const STIT=["Semana 1 — 3 al 9 Ago", "Semana 2 — 10 al 16 Ago", "Semana 3 — 17 al 23 Ago", "Semana 4 — 24 al 30 Ago"];
+let activeP='';
+function chip(name){
+  const c=PC[name]||'#888';
+  return `<span class="chip" onclick="filterP('${name}')" style="background:${c};">${name}</span>`;
+}
+function trow(label,val){
+  const cls=label==='T1'?'t1b':'t2b'; let body='';
+  if(!val||val==='—') body=`<span class="none-s">${val||'—'}</span>`;
+  else val.split(' + ').forEach(p=>body+=chip(p.trim()));
+  return `<div class="trow"><span class="tb ${cls}">${label}</span>${body}</div>`;
+}
+function renderDay(d){
+  const cls=d.esSab?'sab':d.esDom?'dom':d.esMar?'mar':'';
+  const icon=d.esDom?'🌟':d.esSab?'🕊️':'';
+  let hasPerson=true;
+  if(activeP) hasPerson=[d.p1,d.p2,d.c1,d.c2].some(v=>v&&v.includes(activeP));
+  const dimCls=activeP&&!hasPerson?'dim':'';
+  const hlCls=activeP&&hasPerson?'hl':'';
+  const body=`<span class="sec sec-p">🚪 Puerta</span>
+    ${trow('T1',d.p1)}${trow('T2',d.p2)}
+    ${!d.esSab?`<span class="sec sec-c">🚗 Carros</span>
+      ${trow('T1',d.c1)}${trow('T2',d.c2)}`:''}`;
+  return `<div class="dcard ${cls} ${dimCls} ${hlCls}">
+    <div class="dhdr"><span class="dname">${icon} ${d.dia}</span>
+    <span class="ddate">${d.fecha}</span></div>
+    <div class="dbody">${body}</div></div>`;
+}
+function renderAll(){
+  const semSel=parseInt(document.getElementById('semFilter').value);
+  let html='';
+  DATA.forEach((sem,si)=>{
+    if(semSel!==-1&&semSel!==si) return;
+    html+=`<div class="wk-title">${STIT[si]}</div><div class="week-grid">`;
+    sem.forEach(d=>html+=renderDay(d));
+    html+=`</div>`;
+  });
+  document.getElementById('mainContent').innerHTML=html;
+}
+function filterP(name){
+  activeP=(activeP===name)?'':name;
+  document.getElementById('personFilter').value=activeP;
+  renderAll(); buildStatsBar();
+  document.querySelectorAll('.citem').forEach(el=>
+    el.classList.toggle('active',el.dataset.name===activeP));
+}
+function resetFiltros(){
+  activeP='';
+  document.getElementById('personFilter').value='';
+  document.getElementById('semFilter').value='-1';
+  document.querySelectorAll('.citem').forEach(el=>el.classList.remove('active'));
+  renderAll(); buildStatsBar();
+}
+document.getElementById('personFilter').addEventListener('change',e=>{
+  activeP=e.target.value; renderAll(); buildStatsBar();
+  document.querySelectorAll('.citem').forEach(el=>
+    el.classList.toggle('active',el.dataset.name===activeP));
+});
+document.getElementById('semFilter').addEventListener('change',renderAll);
+function buildStatsBar(){
+  const sb=document.getElementById('statsBar');
+  if(activeP&&STATS[activeP]){
+    const s=STATS[activeP];
+    const ns=s.sinSab?` · <em style="opacity:.85">Sin sábado este mes</em>`:'';
+    sb.innerHTML=`<span style="font-weight:700;font-size:.85rem">${activeP}</span>${ns}
+      <div class="stat-item"><div class="stat-val">${s.total}</div><div class="stat-lbl">Total</div></div>
+      <div class="stat-item"><div class="stat-val">${s.puerta}</div><div class="stat-lbl">Puerta</div></div>
+      <div class="stat-item"><div class="stat-val">${s.carros}</div><div class="stat-lbl">Carros</div></div>
+      <div class="stat-item"><div class="stat-val">${s.sab}</div><div class="stat-lbl">Sábados</div></div>
+      <div class="stat-item"><div class="stat-val">${s.dom}</div><div class="stat-lbl">Domingos</div></div>
+      <div style="font-size:.68rem;opacity:.8">${s.semanas.map((n,i)=>`S${i+1}:${n}`).join(' · ')}</div>`;
+  }else{
+    sb.innerHTML=`
+      <div class="stat-item"><div class="stat-val">112</div><div class="stat-lbl">Slots totales</div></div>
+      <div class="stat-item"><div class="stat-val">14</div><div class="stat-lbl">Hermanos</div></div>
+      <div class="stat-item"><div class="stat-val">7–8</div><div class="stat-lbl">Rango asign.</div></div>
+      <div class="stat-item"><div class="stat-val">≤1</div><div class="stat-lbl">Sáb/persona</div></div>
+      <div class="stat-item"><div class="stat-val">✓</div><div class="stat-lbl">Restricciones</div></div>
+      <span style="font-size:.7rem;opacity:.7">Clic en un hermano para ver su historial</span>`;
+  }
+}
+function buildSB(){
+  const list=document.getElementById('clist'); list.innerHTML='';
+  COLS.forEach(p=>{
+    const c=PC[p]||'#888'; const s=STATS[p]; const ns=s.sinSab;
+    list.innerHTML+=`<div class="citem${ns?' no-sab':''}" data-name="${p}"
+      style="background:${c}" onclick="filterP('${p}')">
+      <span>${p}</span>
+      <div class="cstats">${s.total} asign. · 🚪${s.puerta} 🚗${s.carros} 🕊️${s.sab} ☀${s.dom}</div>
+    </div>`;
+  });
+}
+function toggleSB(){
+  document.getElementById('sb').classList.toggle('open');
+  document.getElementById('ov').classList.toggle('show');
+}
+function closeSB(){
+  document.getElementById('sb').classList.remove('open');
+  document.getElementById('ov').classList.remove('show');
+}
+function descargarJPEG(){
+  const btn=document.querySelector('.b-jpeg');
+  const area=document.getElementById('captureArea');
+  const orig=btn.innerHTML;
+  btn.disabled=true; btn.innerHTML='⏳ Generando...';
+  const prevP=activeP; activeP=''; renderAll();
+  area.classList.add('capturing');
+  setTimeout(()=>{
+    html2canvas(area,{scale:3,backgroundColor:'#ffffff',useCORS:true,windowWidth:1700}).then(canvas=>{
+      const link=document.createElement('a');
+      link.download='Vigilancia_Agosto_2026.jpg';
+      link.href=canvas.toDataURL('image/jpeg',0.95);
+      link.click();
+      area.classList.remove('capturing');
+      activeP=prevP; renderAll();
+      btn.disabled=false; btn.innerHTML=orig;
+    }).catch(err=>{
+      console.error(err);
+      area.classList.remove('capturing');
+      activeP=prevP; renderAll();
+      btn.disabled=false; btn.innerHTML=orig;
+      alert('Hubo un problema generando la imagen. Intenta de nuevo.');
+    });
+  },150);
+}
+buildStatsBar(); buildSB(); renderAll();
+</script>
+</body>
+</html>
