@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vigilancia Septiembre 2026</title>
+<title>Vigilancia Octubre 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 :root{
-  --hdr:#0D47A1;--hdr2:#1565C0;--hdr3:#1E88E5;
-  --puerta:#00838F;--carros:#BF360C;
+  --hdr:#004D40;--hdr2:#00695C;--hdr3:#00897B;
+  --puerta:#5D4037;--carros:#BF360C;
   --sab:#6A1B9A;--dom:#E65100;--mar:#01579B;
-  --bg:#E3F2FD;--card:#fff;--r:9px;--sh:0 2px 10px rgba(0,0,0,.09);
+  --bg:#E0F2F1;--card:#fff;--r:9px;--sh:0 2px 10px rgba(0,0,0,.09);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);font-family:'Segoe UI',Arial,sans-serif;color:#2D3748}
@@ -21,7 +21,7 @@ body{background:var(--bg);font-family:'Segoe UI',Arial,sans-serif;color:#2D3748}
 .topbar h1{font-size:1.12rem;font-weight:700;line-height:1.2}
 .topbar p{font-size:.72rem;opacity:.85;margin-top:2px}
 .topbar-right{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.notice{background:#E3F2FD;border-left:4px solid #1565C0;padding:8px 16px;font-size:.78rem;color:#0D47A1}
+.notice{background:#E0F2F1;border-left:4px solid #00897B;padding:8px 16px;font-size:.78rem;color:#004D40}
 .notice.warn{background:#FFF3E0;border-left-color:#FB8C00;color:#E65100}
 .stats-bar{background:var(--hdr);color:#fff;padding:7px 18px;
   display:flex;gap:18px;flex-wrap:wrap;font-size:.73rem;align-items:center}
@@ -29,26 +29,26 @@ body{background:var(--bg);font-family:'Segoe UI',Arial,sans-serif;color:#2D3748}
 .stat-val{font-size:1rem;font-weight:700}
 .stat-lbl{font-size:.6rem;opacity:.75;text-transform:uppercase}
 .ctrl{padding:9px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-  background:#fff;border-bottom:2px solid #BBDEFB}
-label{font-size:.78rem;font-weight:600;color:#0D47A1}
-select{border:1.5px solid #90CAF9;border-radius:6px;padding:4px 8px;
+  background:#fff;border-bottom:2px solid #B2DFDB}
+label{font-size:.78rem;font-weight:600;color:#004D40}
+select{border:1.5px solid #80CBC4;border-radius:6px;padding:4px 8px;
   font-size:.78rem;background:#fff;cursor:pointer}
 .btn{border:none;border-radius:6px;padding:5px 13px;font-size:.78rem;
   cursor:pointer;font-weight:600;transition:all .15s}
-.b-blue{background:var(--hdr2);color:#fff}.b-blue:hover{background:var(--hdr)}
+.b-emerald{background:var(--hdr2);color:#fff}.b-emerald:hover{background:var(--hdr)}
 .b-jpeg{background:#FB8C00;color:#fff}.b-jpeg:hover{background:#EF6C00}
 .b-jpeg:disabled{background:#FFCC80;cursor:wait}
-.b-gray{background:#E3F2FD;color:#0D47A1;border:1px solid #90CAF9}
-#captureArea{background:#F5FAFF;padding:14px 16px}
+.b-gray{background:#E0F2F1;color:#004D40;border:1px solid #80CBC4}
+#captureArea{background:#F1FAF9;padding:14px 16px}
 .capture-title{display:none;text-align:center;font-size:22px;font-weight:800;
-  color:#0D47A1;padding:6px 0 2px}
-.capture-subtitle{display:none;text-align:center;font-size:13px;color:#1565C0;
-  padding-bottom:10px;border-bottom:2px solid #1565C0;margin-bottom:10px}
+  color:#004D40;padding:6px 0 2px}
+.capture-subtitle{display:none;text-align:center;font-size:13px;color:#00695C;
+  padding-bottom:10px;border-bottom:2px solid #00695C;margin-bottom:10px}
 #captureArea.capturing{background:#fff}
 #captureArea.capturing .capture-title,
 #captureArea.capturing .capture-subtitle{display:block}
 .legend{display:flex;gap:7px;flex-wrap:wrap;align-items:center;
-  padding:7px 16px;background:#F0F8FF;border-bottom:1px solid #BBDEFB;font-size:.72rem}
+  padding:7px 16px;background:#F1FAF9;border-bottom:1px solid #B2DFDB;font-size:.72rem}
 .li{display:flex;align-items:center;gap:4px}
 .ld{width:10px;height:10px;border-radius:2px}
 .main{padding:12px 16px}
@@ -75,10 +75,10 @@ select{border:1.5px solid #90CAF9;border-radius:6px;padding:4px 8px;
 .dash-msg{color:#90A4AE;font-style:italic;font-size:.73rem;text-align:center;padding:8px 0}
 .sec{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
   margin:4px 0 2px;padding:1px 5px;border-radius:3px;display:inline-block}
-.sec-p{background:rgba(0,131,143,.12);color:#00838F}
+.sec-p{background:rgba(93,64,55,.12);color:#5D4037}
 .sec-c{background:rgba(191,54,12,.12);color:var(--carros)}
 .trow{display:flex;align-items:center;gap:4px;padding:2px 4px;border-radius:4px;
-  margin-bottom:2px;background:#F0F8FF;font-size:.76rem;flex-wrap:wrap}
+  margin-bottom:2px;background:#F1FAF9;font-size:.76rem;flex-wrap:wrap}
 .tb{font-size:.57rem;font-weight:700;padding:1px 4px;border-radius:3px;flex-shrink:0}
 .t1b{background:#DBEAFE;color:#1E40AF}.t2b{background:#FCE7F3;color:#9D174D}
 .chip{display:inline-flex;align-items:center;gap:3px;padding:2px 6px;
@@ -96,7 +96,7 @@ select{border:1.5px solid #90CAF9;border-radius:6px;padding:4px 8px;
   transform:translateX(100%);transition:transform .3s;overflow-y:auto;padding:16px}
 .sidebar.open{transform:translateX(0)}
 .sidebar h2{font-size:.93rem;color:var(--hdr);margin-bottom:10px;
-  padding-bottom:6px;border-bottom:2px solid #BBDEFB;display:flex;
+  padding-bottom:6px;border-bottom:2px solid #B2DFDB;display:flex;
   justify-content:space-between;align-items:center}
 .sb-close{background:none;border:none;font-size:1.1rem;cursor:pointer;color:#718096}
 .clist{display:flex;flex-direction:column;gap:5px}
@@ -109,54 +109,53 @@ select{border:1.5px solid #90CAF9;border-radius:6px;padding:4px 8px;
   padding:1px 5px;border-radius:3px;margin-left:auto}
 .cstats{font-size:.65rem;opacity:.9;margin-left:auto;text-align:right}
 footer{text-align:center;padding:10px;font-size:.7rem;
-  color:#A0AEC0;border-top:1px solid #BBDEFB;margin-top:14px}
+  color:#A0AEC0;border-top:1px solid #B2DFDB;margin-top:14px}
 </style>
 </head>
 <body>
 <div class="topbar">
-  <div class="topbar-icon">💧</div>
+  <div class="topbar-icon">🌲</div>
   <div>
-    <h1>Cronograma de Vigilancia – Septiembre 2026</h1>
-    <p>2 Sep → 30 Sep · Inicia miércoles · 14 colaboradores</p>
+    <h1>Cronograma de Vigilancia – Octubre 2026</h1>
+    <p>7 Oct → 31 Oct · Inicia miércoles · 12 colaboradores</p>
   </div>
   <div class="topbar-right">
     <button class="btn b-jpeg" onclick="descargarJPEG()">📷 Descargar Imagen</button>
     <button class="btn b-gray" onclick="toggleSB()">👥 Colaboradores</button>
   </div>
 </div>
-<div class="notice warn">⚠ El mes inicia el <strong>miércoles 2 de septiembre</strong>. Lunes 31 y martes 1 no se generan (ya pasaron). El <strong>sábado 5 de septiembre</strong> no se asignó a Luis C., Carlos T., Hernan ni Anderson porque ya hicieron turno el martes 1 (excepción única, no aplica a otros meses).</div>
-<div class="notice">📌 Nueva regla permanente desde este mes: <strong>Fernando ya no se asigna los sábados</strong>. Sin sábado este mes: David, Anderson, Fernando (por regla fija) y Rodolfo (por rotación).</div>
+<div class="notice warn">⚠ <strong>Luis C.</strong> ya no forma parte del equipo de vigilancia (salida definitiva — eliminado de la lista). El mes inicia el <strong>miércoles 7 de octubre</strong>; lunes 5 y martes 6 no se generan (ya pasaron).</div>
+<div class="notice">📌 <strong>Hernan</strong> no fue incluido este mes (excepción de un solo mes, no es una regla permanente — vuelve en noviembre).</div>
 <div class="stats-bar" id="statsBar"></div>
 <div class="ctrl">
   <label>Semana:</label>
   <select id="semFilter">
     <option value="-1">Todas</option>
-    <option value="0">Sem 1 · 31 Ago–6 Sep</option>
-    <option value="1">Sem 2 · 7–13 Sep</option>
-    <option value="2">Sem 3 · 14–20 Sep</option>
-    <option value="3">Sem 4 · 21–27 Sep</option>
-    <option value="4">Sem 5 · 28 Sep–4 Oct</option>
+    <option value="0">Sem 1 · 5–11 Oct</option>
+    <option value="1">Sem 2 · 12–18 Oct</option>
+    <option value="2">Sem 3 · 19–25 Oct</option>
+    <option value="3">Sem 4 · 26 Oct–1 Nov</option>
   </select>
   <label>Colaborador:</label>
   <select id="personFilter">
     <option value="">Todos</option>
-    <option value="Carlos B">Carlos B</option><option value="Hernan">Hernan</option><option value="Fernando">Fernando</option><option value="David">David</option><option value="Luis C.">Luis C.</option><option value="Ciro">Ciro</option><option value="Carlos T">Carlos T</option><option value="Deivid">Deivid</option><option value="Anderson">Anderson</option><option value="Jeiner">Jeiner</option><option value="Miguel A">Miguel A</option><option value="Justo">Justo</option><option value="Alfonso">Alfonso</option><option value="Rodolfo">Rodolfo</option>
+    <option value="Carlos B">Carlos B</option><option value="Fernando">Fernando</option><option value="David">David</option><option value="Ciro">Ciro</option><option value="Carlos T">Carlos T</option><option value="Deivid">Deivid</option><option value="Anderson">Anderson</option><option value="Jeiner">Jeiner</option><option value="Miguel A">Miguel A</option><option value="Justo">Justo</option><option value="Alfonso">Alfonso</option><option value="Rodolfo">Rodolfo</option>
   </select>
   <button class="btn b-gray" onclick="resetFiltros()">✕ Limpiar</button>
 </div>
 <div class="legend">
-  <b style="color:#0D47A1">Leyenda:</b>
-  <div class="li"><div class="ld" style="background:#1565C0"></div>Lun/Mié/Jue/Vie</div>
+  <b style="color:#004D40">Leyenda:</b>
+  <div class="li"><div class="ld" style="background:#00695C"></div>Lun/Mié/Jue/Vie</div>
   <div class="li"><div class="ld" style="background:#01579B"></div>Martes (restr. Sáb)</div>
   <div class="li"><div class="ld" style="background:#6A1B9A"></div>Sábado (solo Puerta)</div>
   <div class="li"><div class="ld" style="background:#E65100"></div>Domingo</div>
   <div class="li"><div class="ld" style="background:#78909C"></div>Sin asignación</div>
-  <div class="li"><div class="ld" style="background:#00838F"></div>Puerta</div>
+  <div class="li"><div class="ld" style="background:#5D4037"></div>Puerta</div>
   <div class="li"><div class="ld" style="background:#BF360C"></div>Carros</div>
 </div>
 <div id="captureArea">
-  <div class="capture-title">PROGRAMACIÓN VIGILANCIA – SEPTIEMBRE 2026</div>
-  <div class="capture-subtitle">2 Sep → 30 Sep · Iglesia · Inicia miércoles</div>
+  <div class="capture-title">PROGRAMACIÓN VIGILANCIA – OCTUBRE 2026</div>
+  <div class="capture-subtitle">7 Oct → 31 Oct · Iglesia · Sin Luis C. ni Hernan (este mes)</div>
   <div class="main" id="mainContent"></div>
 </div>
 <button class="sb-btn" onclick="toggleSB()">👥</button>
@@ -165,13 +164,13 @@ footer{text-align:center;padding:10px;font-size:.7rem;
   <h2>Colaboradores <button class="sb-close" onclick="closeSB()">✕</button></h2>
   <div class="clist" id="clist"></div>
 </div>
-<footer>Iglesia · Vigilancia Septiembre 2026 · Rango 9–10 asignaciones · ✓ Todas las restricciones cumplidas</footer>
+<footer>Iglesia · Vigilancia Octubre 2026 · Rango 8–9 asignaciones · ✓ Todas las restricciones cumplidas</footer>
 <script>
-const DATA=[[{"dia": "Lunes", "fecha": "31 Ago", "dash": true, "esSab": false, "esDom": false, "esMar": false, "p1": "", "p2": "", "c1": "", "c2": ""}, {"dia": "Martes", "fecha": "1 Sep", "dash": true, "esSab": false, "esDom": false, "esMar": true, "p1": "", "p2": "", "c1": "", "c2": ""}, {"dia": "Miércoles", "fecha": "2 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Hernan", "c1": "David", "c2": "Fernando"}, {"dia": "Jueves", "fecha": "3 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Ciro", "c1": "Carlos T", "c2": "Deivid"}, {"dia": "Viernes", "fecha": "4 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Anderson", "c1": "Miguel A", "c2": "Justo"}, {"dia": "Sábado", "fecha": "5 Sep", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Ciro", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "6 Sep", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Hernan + Jeiner", "c2": "Anderson"}], [{"dia": "Lunes", "fecha": "7 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "David", "p2": "Fernando", "c1": "Luis C.", "c2": "Alfonso"}, {"dia": "Martes", "fecha": "8 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Carlos T", "p2": "Miguel A", "c1": "Rodolfo", "c2": "Justo"}, {"dia": "Miércoles", "fecha": "9 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Deivid", "p2": "Hernan", "c1": "Carlos B", "c2": "Ciro"}, {"dia": "Jueves", "fecha": "10 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Anderson", "c1": "David", "c2": "Fernando"}, {"dia": "Viernes", "fecha": "11 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Carlos T", "c1": "Luis C.", "c2": "Deivid"}, {"dia": "Sábado", "fecha": "12 Sep", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Deivid", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "13 Sep", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Miguel A", "p2": "Carlos B", "c1": "Ciro + Carlos T", "c2": "Justo"}], [{"dia": "Lunes", "fecha": "14 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Hernan", "c2": "Anderson"}, {"dia": "Martes", "fecha": "15 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "David", "p2": "Fernando", "c1": "Jeiner", "c2": "Alfonso"}, {"dia": "Miércoles", "fecha": "16 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Rodolfo", "c1": "Carlos B", "c2": "Ciro"}, {"dia": "Jueves", "fecha": "17 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Carlos T", "c1": "Luis C.", "c2": "Deivid"}, {"dia": "Viernes", "fecha": "18 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Hernan", "p2": "Fernando", "c1": "Miguel A", "c2": "David"}, {"dia": "Sábado", "fecha": "19 Sep", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Carlos T", "p2": "Hernan", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "20 Sep", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Jeiner", "p2": "Anderson", "c1": "Rodolfo + Alfonso", "c2": "Fernando"}], [{"dia": "Lunes", "fecha": "21 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "David", "p2": "Ciro", "c1": "Carlos B", "c2": "Anderson"}, {"dia": "Martes", "fecha": "22 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Luis C.", "p2": "Deivid", "c1": "Miguel A", "c2": "Rodolfo"}, {"dia": "Miércoles", "fecha": "23 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Alfonso", "c1": "Jeiner", "c2": "Hernan"}, {"dia": "Jueves", "fecha": "24 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Fernando", "c1": "David", "c2": "Ciro"}, {"dia": "Viernes", "fecha": "25 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos T", "p2": "Deivid", "c1": "Luis C.", "c2": "Anderson"}, {"dia": "Sábado", "fecha": "26 Sep", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Justo", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "27 Sep", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Miguel A", "p2": "Hernan", "c1": "Carlos T + Deivid", "c2": "Justo"}], [{"dia": "Lunes", "fecha": "28 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Rodolfo", "c1": "Carlos B", "c2": "Fernando"}, {"dia": "Martes", "fecha": "29 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "David", "p2": "Ciro", "c1": "Jeiner", "c2": "Anderson"}, {"dia": "Miércoles", "fecha": "30 Sep", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Luis C.", "p2": "Miguel A", "c1": "Alfonso", "c2": "Rodolfo"}, {"dia": "Jueves", "fecha": "1 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Deivid", "p2": "Justo", "c1": "Hernan", "c2": "Carlos T"}, {"dia": "Viernes", "fecha": "2 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Anderson", "c1": "Miguel A", "c2": "Fernando"}, {"dia": "Sábado", "fecha": "3 Oct", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Alfonso", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "4 Oct", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "David", "p2": "Ciro", "c1": "Luis C. + Jeiner", "c2": "Rodolfo"}]];
-const PC={"Carlos B": "#E53935", "Hernan": "#D81B60", "Fernando": "#8E24AA", "David": "#5E35B1", "Luis C.": "#3949AB", "Ciro": "#1E88E5", "Carlos T": "#039BE5", "Deivid": "#00ACC1", "Anderson": "#00897B", "Jeiner": "#43A047", "Miguel A": "#7CB342", "Justo": "#F9A825", "Alfonso": "#FB8C00", "Rodolfo": "#6D4C41"};
-const COLS=["Carlos B", "Hernan", "Fernando", "David", "Luis C.", "Ciro", "Carlos T", "Deivid", "Anderson", "Jeiner", "Miguel A", "Justo", "Alfonso", "Rodolfo"];
-const STATS={"Carlos B": {"total": 9, "puerta": 5, "carros": 4, "dom": 1, "mar": 0, "sab": 1, "sinSab": false, "semanas": [2, 2, 1, 2, 2]}, "Hernan": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 0, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 2, 1]}, "Fernando": {"total": 9, "puerta": 4, "carros": 5, "dom": 1, "mar": 1, "sab": 0, "sinSab": true, "semanas": [1, 2, 3, 1, 2]}, "David": {"total": 9, "puerta": 5, "carros": 4, "dom": 1, "mar": 2, "sab": 0, "sinSab": true, "semanas": [1, 2, 2, 2, 2]}, "Luis C.": {"total": 9, "puerta": 4, "carros": 5, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 3, 1, 2, 2]}, "Ciro": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 2, 1, 2, 2]}, "Carlos T": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 3, 2, 2, 1]}, "Deivid": {"total": 9, "puerta": 5, "carros": 4, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 3, 1, 3, 1]}, "Anderson": {"total": 9, "puerta": 4, "carros": 5, "dom": 2, "mar": 1, "sab": 0, "sinSab": true, "semanas": [2, 1, 2, 2, 2]}, "Jeiner": {"total": 9, "puerta": 4, "carros": 5, "dom": 3, "mar": 2, "sab": 1, "sinSab": false, "semanas": [2, 1, 2, 2, 2]}, "Miguel A": {"total": 10, "puerta": 6, "carros": 4, "dom": 2, "mar": 2, "sab": 1, "sinSab": false, "semanas": [1, 2, 2, 2, 3]}, "Justo": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 3, 1, 3, 1]}, "Alfonso": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 1, 3, 1, 3]}, "Rodolfo": {"total": 9, "puerta": 4, "carros": 5, "dom": 3, "mar": 2, "sab": 0, "sinSab": true, "semanas": [1, 1, 3, 1, 3]}};
-const STIT=["Semana 1 — 31 Ago al 6 Sep", "Semana 2 — 7 al 13 Sep", "Semana 3 — 14 al 20 Sep", "Semana 4 — 21 al 27 Sep", "Semana 5 — 28 Sep al 4 Oct"];
+const DATA=[[{"dia": "Lunes", "fecha": "5 Oct", "dash": true, "esSab": false, "esDom": false, "esMar": false, "p1": "", "p2": "", "c1": "", "c2": ""}, {"dia": "Martes", "fecha": "6 Oct", "dash": true, "esSab": false, "esDom": false, "esMar": true, "p1": "", "p2": "", "c1": "", "c2": ""}, {"dia": "Miércoles", "fecha": "7 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Fernando", "c1": "David", "c2": "Ciro"}, {"dia": "Jueves", "fecha": "8 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos T", "p2": "Deivid", "c1": "Jeiner", "c2": "Anderson"}, {"dia": "Viernes", "fecha": "9 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Justo", "c1": "Alfonso", "c2": "Rodolfo"}, {"dia": "Sábado", "fecha": "10 Oct", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Carlos B", "p2": "Ciro", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "11 Oct", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "David", "p2": "Alfonso", "c1": "Miguel A + Justo", "c2": "Fernando"}], [{"dia": "Lunes", "fecha": "12 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Anderson", "c1": "Carlos T", "c2": "Deivid"}, {"dia": "Martes", "fecha": "13 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Rodolfo", "p2": "Fernando", "c1": "Carlos B", "c2": "David"}, {"dia": "Miércoles", "fecha": "14 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Ciro", "p2": "Miguel A", "c1": "Justo", "c2": "Alfonso"}, {"dia": "Jueves", "fecha": "15 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Rodolfo", "p2": "David", "c1": "Carlos B", "c2": "Fernando"}, {"dia": "Viernes", "fecha": "16 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Carlos T", "p2": "Deivid", "c1": "Jeiner", "c2": "Anderson"}, {"dia": "Sábado", "fecha": "17 Oct", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Carlos T", "p2": "Deivid", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "18 Oct", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Ciro", "p2": "Anderson", "c1": "Jeiner + Carlos T", "c2": "Deivid"}], [{"dia": "Lunes", "fecha": "19 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Alfonso", "c1": "Miguel A", "c2": "Rodolfo"}, {"dia": "Martes", "fecha": "20 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "Ciro", "p2": "Anderson", "c1": "Miguel A", "c2": "Alfonso"}, {"dia": "Miércoles", "fecha": "21 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Carlos B", "c1": "David", "c2": "Fernando"}, {"dia": "Jueves", "fecha": "22 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Justo", "p2": "Carlos T", "c1": "Deivid", "c2": "Ciro"}, {"dia": "Viernes", "fecha": "23 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Rodolfo", "p2": "Fernando", "c1": "Carlos B", "c2": "Anderson"}, {"dia": "Sábado", "fecha": "24 Oct", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Justo", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "25 Oct", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "David", "p2": "Miguel A", "c1": "Rodolfo + Alfonso", "c2": "Carlos B"}], [{"dia": "Lunes", "fecha": "26 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Alfonso", "p2": "Fernando", "c1": "Ciro", "c2": "Carlos T"}, {"dia": "Martes", "fecha": "27 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": true, "p1": "David", "p2": "Deivid", "c1": "Justo", "c2": "Jeiner"}, {"dia": "Miércoles", "fecha": "28 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Anderson", "c1": "Rodolfo", "c2": "Carlos B"}, {"dia": "Jueves", "fecha": "29 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Jeiner", "p2": "Alfonso", "c1": "David", "c2": "Fernando"}, {"dia": "Viernes", "fecha": "30 Oct", "dash": false, "esSab": false, "esDom": false, "esMar": false, "p1": "Rodolfo", "p2": "Ciro", "c1": "Carlos T", "c2": "Deivid"}, {"dia": "Sábado", "fecha": "31 Oct", "dash": false, "esSab": true, "esDom": false, "esMar": false, "p1": "Miguel A", "p2": "Alfonso", "c1": "—", "c2": "—"}, {"dia": "Domingo", "fecha": "1 Nov", "dash": false, "esSab": false, "esDom": true, "esMar": false, "p1": "Justo", "p2": "Anderson", "c1": "Ciro + Carlos T", "c2": "Deivid"}]];
+const PC={"Carlos B": "#E53935", "Fernando": "#8E24AA", "David": "#5E35B1", "Ciro": "#1E88E5", "Carlos T": "#039BE5", "Deivid": "#00ACC1", "Anderson": "#00897B", "Jeiner": "#43A047", "Miguel A": "#7CB342", "Justo": "#F9A825", "Alfonso": "#FB8C00", "Rodolfo": "#6D4C41"};
+const COLS=["Carlos B", "Fernando", "David", "Ciro", "Carlos T", "Deivid", "Anderson", "Jeiner", "Miguel A", "Justo", "Alfonso", "Rodolfo"];
+const STATS={"Carlos B": {"total": 8, "puerta": 3, "carros": 5, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 2, 3, 1]}, "Fernando": {"total": 8, "puerta": 4, "carros": 4, "dom": 1, "mar": 1, "sab": 0, "sinSab": true, "semanas": [2, 2, 2, 2]}, "David": {"total": 8, "puerta": 4, "carros": 4, "dom": 2, "mar": 2, "sab": 0, "sinSab": true, "semanas": [2, 2, 2, 2]}, "Ciro": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 2, 2, 3]}, "Carlos T": {"total": 9, "puerta": 4, "carros": 5, "dom": 2, "mar": 0, "sab": 1, "sinSab": false, "semanas": [1, 4, 1, 3]}, "Deivid": {"total": 9, "puerta": 4, "carros": 5, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 4, 1, 3]}, "Anderson": {"total": 8, "puerta": 5, "carros": 3, "dom": 2, "mar": 1, "sab": 0, "sinSab": true, "semanas": [1, 3, 2, 2]}, "Jeiner": {"total": 8, "puerta": 4, "carros": 4, "dom": 1, "mar": 1, "sab": 1, "sinSab": false, "semanas": [1, 3, 2, 2]}, "Miguel A": {"total": 8, "puerta": 5, "carros": 3, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 2]}, "Justo": {"total": 8, "puerta": 5, "carros": 3, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 2]}, "Alfonso": {"total": 9, "puerta": 5, "carros": 4, "dom": 2, "mar": 1, "sab": 1, "sinSab": false, "semanas": [2, 1, 3, 3]}, "Rodolfo": {"total": 8, "puerta": 4, "carros": 4, "dom": 1, "mar": 1, "sab": 0, "sinSab": true, "semanas": [1, 2, 3, 2]}};
+const STIT=["Semana 1 — 5 al 11 Oct", "Semana 2 — 12 al 18 Oct", "Semana 3 — 19 al 25 Oct", "Semana 4 — 26 Oct al 1 Nov"];
 let activeP='';
 function chip(name){
   const c=PC[name]||'#888';
@@ -250,8 +249,8 @@ function buildStatsBar(){
       <div style="font-size:.68rem;opacity:.8">${s.semanas.map((n,i)=>`S${i+1}:${n}`).join(' · ')}</div>`;
   }else{
     sb.innerHTML=`
-      <div class="stat-item"><div class="stat-val">14</div><div class="stat-lbl">Hermanos</div></div>
-      <div class="stat-item"><div class="stat-val">9–10</div><div class="stat-lbl">Rango asign.</div></div>
+      <div class="stat-item"><div class="stat-val">12</div><div class="stat-lbl">Hermanos</div></div>
+      <div class="stat-item"><div class="stat-val">8–9</div><div class="stat-lbl">Rango asign.</div></div>
       <div class="stat-item"><div class="stat-val">≤1</div><div class="stat-lbl">Sáb/persona</div></div>
       <div class="stat-item"><div class="stat-val">✓</div><div class="stat-lbl">Restricciones</div></div>
       <span style="font-size:.7rem;opacity:.7">Clic en un hermano para ver su historial</span>`;
@@ -286,7 +285,7 @@ function descargarJPEG(){
   setTimeout(()=>{
     html2canvas(area,{scale:3,backgroundColor:'#ffffff',useCORS:true,windowWidth:1700}).then(canvas=>{
       const link=document.createElement('a');
-      link.download='Vigilancia_Septiembre_2026.jpg';
+      link.download='Vigilancia_Octubre_2026.jpg';
       link.href=canvas.toDataURL('image/jpeg',0.95);
       link.click();
       area.classList.remove('capturing');
